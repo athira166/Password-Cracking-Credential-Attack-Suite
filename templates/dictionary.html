@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Dictionary Generator</h1>
+
+<p>Create custom password wordlists.</p>
+
+<form method="POST">
+
+<label>Name</label>
+
+<input
+type="text"
+name="name"
+required>
+
+<label>Birth Year</label>
+
+<input
+type="text"
+name="year"
+required>
+
+<button>
+
+Generate Dictionary
+
+</button>
+
+</form>
+
+{% if words %}
+
+<h2 style="margin-top:40px;">Generated Passwords</h2>
+
+<div class="result-box">
+
+{% for word in words %}
+
+<p>{{ word }}</p>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+{% endblock %}

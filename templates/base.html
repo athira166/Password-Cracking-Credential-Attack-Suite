@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Cracking & Credential Attack Suite</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+<nav>
+
+    <h2>
+        <i class="fa-solid fa-shield-halved"></i>
+        Password Security Suite
+    </h2>
+
+    <ul>
+
+        <li><a href="/">Dashboard</a></li>
+
+        <li><a href="/dictionary">Dictionary</a></li>
+
+        <li><a href="/hash">Hash Generator</a></li>
+
+        <li><a href="/strength">Strength Analyzer</a></li>
+
+        <li><a href="/simulation">Simulation</a></li>
+
+        <li><a href="/report">Reports</a></li>
+
+    </ul>
+
+</nav>
+
+<div class="container">
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

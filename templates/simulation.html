@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>⚡ Brute Force Simulation</h1>
+
+<p>
+Simulate password guessing attempts for cybersecurity learning.
+</p>
+
+
+<form method="POST">
+
+    <label>Target Password (Demo)</label>
+
+    <input 
+        type="text"
+        name="target"
+        placeholder="Example: abc"
+        required
+    >
+
+
+    <label>Character Set</label>
+
+    <input 
+        type="text"
+        name="charset"
+        placeholder="Example: abc123"
+        required
+    >
+
+
+    <button type="submit">
+        Start Simulation
+    </button>
+
+</form>
+
+
+
+{% if result %}
+
+<div class="result-box">
+
+    <h2>Simulation Report</h2>
+
+
+    <p>
+        <b>Status:</b>
+        {{ result.status }}
+    </p>
+
+
+    <p>
+        <b>Target:</b>
+        {{ result.target }}
+    </p>
+
+
+    <p>
+        <b>Character Set:</b>
+        {{ result.charset }}
+    </p>
+
+
+    <p>
+        <b>Total Combinations:</b>
+        {{ result.total_combinations }}
+    </p>
+
+
+    <p>
+        <b>Attempts Made:</b>
+        {{ result.attempts }}
+    </p>
+
+
+    <p>
+        <b>Time Taken:</b>
+        {{ result.time_taken }} seconds
+    </p>
+
+
+</div>
+
+{% endif %}
+
+
+{% endblock %}

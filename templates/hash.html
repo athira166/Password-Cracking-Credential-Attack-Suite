@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>🔑 Hash Generator</h1>
+
+<p>
+Generate cryptographic hashes using different algorithms.
+</p>
+
+
+<form method="POST">
+
+    <label>Password</label>
+
+    <input 
+        type="text"
+        name="password"
+        placeholder="Enter password"
+        required
+    >
+
+
+    <label>Select Algorithm</label>
+
+    <select name="algorithm">
+
+        <option value="md5">MD5</option>
+
+        <option value="sha1">SHA-1</option>
+
+        <option value="sha256" selected>SHA-256</option>
+
+        <option value="sha512">SHA-512</option>
+
+    </select>
+
+
+    <button type="submit">
+        Generate Hash
+    </button>
+
+</form>
+
+
+
+{% if result %}
+
+<div class="result-box">
+
+    <h2>Hash Result</h2>
+
+
+    <p>
+        <b>Password:</b>
+        {{ result.password }}
+    </p>
+
+
+    <p>
+        <b>Algorithm:</b>
+        {{ result.algorithm }}
+    </p>
+
+
+    <p>
+        <b>Hash:</b>
+    </p>
+
+
+    <textarea rows="5" cols="70" readonly>{{ result.hash }}</textarea>
+
+
+</div>
+
+{% endif %}
+
+
+{% endblock %}

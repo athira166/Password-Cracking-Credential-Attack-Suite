@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>📄 Security Audit Report</h1>
+
+<p>
+Generate a complete project security report.
+</p>
+
+
+<form method="POST">
+
+    <button type="submit">
+        Generate Report
+    </button>
+
+</form>
+
+
+
+{% if message %}
+
+<div class="result-box">
+
+    <h2>✅ Success</h2>
+
+    <p>
+        {{ message }}
+    </p>
+
+    <p>
+        Report saved at:
+    </p>
+
+    <code>
+        reports/security_audit_report.txt
+    </code>
+
+</div>
+
+{% endif %}
+
+
+{% endblock %}

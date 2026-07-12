@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>🔐 Password Strength Analyzer</h1>
+
+<p>Check password security, entropy, and get recommendations.</p>
+
+
+<form method="POST">
+
+    <label>Enter Password</label>
+
+    <input 
+        type="password" 
+        name="password"
+        placeholder="Enter your password"
+        required
+    >
+
+    <button type="submit">
+        Analyze Password
+    </button>
+
+</form>
+
+
+{% if result %}
+
+<div class="strength-card">
+
+    <h2>🔐 Password Security Report</h2>
+
+
+    <div class="score-box">
+
+        <h3>Security Score</h3>
+
+        <div class="score-number">
+            {{ result.score }}/5
+        </div>
+
+    </div>
+
+
+
+    <div class="strength-status">
+
+        <h3>Strength</h3>
+
+
+        {% if result.strength == "Strong" %}
+
+            <span class="strong">
+                🟢 {{ result.strength }}
+            </span>
+
+
+        {% elif result.strength == "Medium" %}
+
+            <span class="medium">
+                🟡 {{ result.strength }}
+            </span>
+
+
+        {% else %}
+
+            <span class="weak">
+                🔴 {{ result.strength }}
+            </span>
+
+
+        {% endif %}
+
+    </div>
+    <div class="recommendations">
+
+        <h3>💡 Recommendations</h3>
+
+
+        {% if result.suggestions %}
+
+        <ul>
+
+            {% for item in result.suggestions %}
+
+            <li>{{ item }}</li>
+
+            {% endfor %}
+
+        </ul>
+
+
+        {% else %}
+
+        <p>
+            ✅ Excellent! Your password follows recommended security practices.
+        </p>
+
+
+        {% endif %}
+
+    </div>
+
+
+</div>
+
+    <h3>Recommendations:</h3>
+
+    {% if result.suggestions %}
+
+    <ul>
+
+        {% for item in result.suggestions %}
+
+        <li>{{ item }}</li>
+
+        {% endfor %}
+
+    </ul>
+
+    {% else %}
+
+    <p>
+        ✅ Excellent! Your password follows recommended security practices.
+    </p>
+
+    {% endif %}
+
+
+</div>
+
+{% endif %}
+
+
+{% endblock %}
