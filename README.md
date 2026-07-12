@@ -10,6 +10,12 @@ The main goal of this project is to understand password vulnerabilities and demo
 
 ---
 
+# 🌐 Live Demo
+
+Try the application here:
+
+https://password-cracking-credential-attack-suite-tcqd.onrender.com
+
 # 🚀 Features
 
 ## 🔑 Custom Dictionary Generator
